@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .header-top{
+            display: none;
+        }
+    </style>
+    <main>
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+    
+          <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+    
+                  <div class="card mb-3 col-lg-8 col-md-4 mt-5">
+    
+                    <div class="card-body">
+    
+                      <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">Signup to start your Booking</h5>
+                        <p class="text-center small">required fields are marked with *</p>
+                      </div>
+
+                      <div id="msg"></div>
+    
+                      <form class="row g-3 needs-validation" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div id="form1" class="form1">
+
+                            <div class="col-12">
+                                <h2 class="btn btn-info">Step 1</h2>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.first_name.label }} *
+                                {{ client_form.first_name }}
+                                <div class="invalid-feedback">{{ client_form.first_name.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.last_name.label }} *
+                                {{ client_form.last_name }}
+                                <div class="invalid-feedback">{{ client_form.last_name.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ booking_form.address.label }} *
+                                {{ booking_form.address }}
+                                <div class="invalid-feedback">{{ client_form.address.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.gender.label }} *
+                                {{ client_form.gender }}
+                                <div class="invalid-feedback">{{ client_form.gender.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.country.label }} *
+                                {{ client_form.country }}
+                                <div class="invalid-feedback">{{ client_form.country.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.state.label }} *
+                                {{ client_form.state }}
+                                <div class="invalid-feedback">{{ client_form.state.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.area_code.label }} *
+                                {{ client_form.area_code }}
+                                <div class="invalid-feedback">{{ client_form.area_code.errors }}</div>
+                            </div>
+        
+                            <br>
+                            <div class="col-12">
+                                <button id="btn-form1" class="btn btn-primary w-100" type="button">Continue</button>
+                            </div>
+                        </div>
+
+                        <div id="form2">
+
+                            <div class="col-12">
+                                <h2 class="btn btn-info">Step 2</h2>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.email.label }} *
+                                {{ client_form.email }}
+                                <div class="invalid-feedback">{{ client_form.email.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.password.label }} *
+                                {{ client_form.password }}
+                                <div class="invalid-feedback">{{ client_form.password.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.phone.label }} *
+                                {{ client_form.phone }}
+                                <div class="invalid-feedback">{{ client_form.phone.errors }}</div>
+                            </div>
+
+                            <div class="col-12">
+                                {{ client_form.dob.label }} *
+                                {{ client_form.dob }}
+                                <div class="invalid-feedback">{{ client_form.dob.errors }}</div>
+                            </div>
+
+                            <br>
+                            <div class="col-12">
+                                <button id="btn-form2" class="btn btn-primary w-100" type="button">Continue</button>
+                            </div>
+                        </div>
+
+                        <div id="form3">
+
+                            <div class="col-12">
+                                <h2 class="btn btn-info">Step 3</h2>
+                            </div>
+                            
+                            <div class="col-12">
+                                {{ client_form.avatar.label }}
+                                {{ client_form.avatar }}
+                                <div class="invalid-feedback">{{ client_form.avatar.errors }}</div>
+                            </div>
+                            
+                            <br>
+                            <div class="col-12">
+                                <button id="btn-form3" class="btn btn-primary w-100" type="submit">Submit</button>
+                            </div>
+                        </div>
+                      </form>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+          </section>
+    
+        </div>
+      </main><!-- End #main -->
+    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+{% endblock content %}

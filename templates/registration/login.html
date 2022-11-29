@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="container">
+    
+          <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                  <div class="card mb-3">
+    
+                    <div class="card-body">
+                      <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">Login to Your Profile</h5>
+                        <p class="text-center small">Enter your email-address & password to login</p>
+                      </div>
+
+                      {% for msg in messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fa fa-exclamation-octagon me-1 fz-18"></i>
+                            <span class="fz-16">{{ msg }}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      {% endfor %}
+    
+                      <form class="row g-3 needs-validation" method="POST">
+                        {% csrf_token %}
+                        <div class="col-12">
+                          {{ form.email.label }}*
+                          <div class="input-group has-validation">
+                            {{ form.email }}
+                            <div class="invalid-feedback">{{ form.email.errors }}.</div>
+                          </div>
+                        </div>
+    
+                        <div class="col-12">
+                          {{ form.password.label }}*
+                          {{ form.password }}
+                          <div class="invalid-feedback">{{ form.password.errors }}</div>
+                        </div>
+  
+                        <div class="col-12">
+                          <button class="btn btn-primary w-100" type="submit">Login</button>
+                        </div>
+                        <div class="col-12">
+                          <a class="btn btn-secondary w-100" href="{% url 'index' %}">Back to Home</a>
+                        </div>
+                      </form>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+          </section>
+    
+        </div>
+      </main><!-- End #main -->
+    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up-short"></i></a>
+{% endblock content %}
